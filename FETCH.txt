@@ -1,0 +1,24 @@
+Plain-text fetch (no ZIP)
+=========================
+
+This repository is the Isopleth source archive, one file per path.
+A file-fetch tool can read any text file directly. Do not use the ZIP.
+
+Repository:
+https://github.com/bobbyfischermd-max/isopleth-source
+
+Raw file URL pattern:
+https://raw.githubusercontent.com/bobbyfischermd-max/isopleth-source/main/<path>
+
+Start here:
+https://raw.githubusercontent.com/bobbyfischermd-max/isopleth-source/main/EXPORT-NOTES.txt
+https://raw.githubusercontent.com/bobbyfischermd-max/isopleth-source/main/package.json
+https://raw.githubusercontent.com/bobbyfischermd-max/isopleth-source/main/src/lib/model/engine.ts
+https://raw.githubusercontent.com/bobbyfischermd-max/isopleth-source/main/src/lib/model/nodes.ts
+https://raw.githubusercontent.com/bobbyfischermd-max/isopleth-source/main/src/lib/model/scenarios.ts
+https://raw.githubusercontent.com/bobbyfischermd-max/isopleth-source/main/src/lib/map/land.ts
+https://raw.githubusercontent.com/bobbyfischermd-max/isopleth-source/main/src/components/inspector.tsx
+https://raw.githubusercontent.com/bobbyfischermd-max/isopleth-source/main/node_modules/world-atlas/countries-110m.json
+
+PNG and JPG files are binary. Everything else, including the geographic JSON, is text.
+The preview OAuth client secret is redacted in src/lib/auth/preview.ts.

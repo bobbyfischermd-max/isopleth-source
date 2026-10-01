@@ -1,0 +1,75 @@
+Isopleth source archive
+=======================
+
+This archive is the application source required to examine and rebuild the
+published Isopleth workspace. Directory layout and filenames match the project.
+
+Included
+--------
+- src/                 UI, model, map rasterization, scenarios, routes, styles
+- src/lib/model/       calculation and scenario engine (engine, nodes, geo, types, store)
+- src/lib/map/land.ts  land/ocean raster built from Natural Earth topology
+- src/components/inspector.tsx
+                       Method panel (the in-app method documentation)
+- node_modules/world-atlas/
+                       geographic topology used by the map
+                       (countries-110m.json is the import in src/lib/map/land.ts;
+                        50m and 10m resolutions are in the same package)
+- public/              favicon, share card, install-page assets
+- scripts/             dev/build/preview wrappers and checks
+- server/              deploy middleware used by the Vite/Nitro build
+- migrations/          auth schema shipped with the scaffold (auth is off)
+- package.json and package-lock.json
+- vite.config.ts, tsconfig.json, eslint.config.mjs, vercel.json, .prettierrc
+- .grok/app-env.json   VITE_AUTH_ENABLED=false (build flag, not credentials)
+- startup.sh           sandbox preview start script
+- attachments/         original modeling specification that the app implements
+- screenshots/         QA captures of the built and preview UI
+- AGENTS.md            workspace build contract used to produce the app
+
+Method
+------
+There is no separate METHOD.md. The method text rendered in the app is
+MethodPanel in src/components/inspector.tsx. The quantitative model is
+src/lib/model/engine.ts, with node definitions in src/lib/model/nodes.ts,
+baselines in src/lib/model/scenarios.ts, and types in src/lib/model/types.ts.
+Coastlines are not simulated; they are Natural Earth 110m via the world-atlas
+package, rasterized in the browser by src/lib/map/land.ts.
+
+Rebuild
+-------
+Requires Node.js 22.
+
+    npm ci
+    npm run dev
+
+npm run dev serves the app on 0.0.0.0:8080. Production bundle:
+
+    npm run build
+    npm run preview
+
+npm ci reinstalls dependencies, including world-atlas, from package-lock.json.
+The vendored copy under node_modules/world-atlas/ is here so the geography can
+be read without a registry fetch; a clean install replaces node_modules.
+
+Auth is off (.grok/app-env.json sets VITE_AUTH_ENABLED to false). The app
+does not require a database. Do not create a .env file for a normal rebuild.
+
+Omitted on purpose
+------------------
+- node_modules/ except world-atlas. Restored with npm ci (about 450 MB).
+- .vercel/output and .tanstack/ — generated build and dev caches. Recreated
+  by npm run build / npm run dev.
+- .grok/skills and .grok/references — App Builder agent instructions, not part
+  of the Isopleth application and not imported by the app.
+- Logs (.grok/preview.log, .grok/status) and empty artifact/cache directories.
+
+Secrets
+-------
+No API keys, database URLs, or auth tokens are included.
+src/lib/auth/preview.ts contained a shared live-preview OAuth client secret.
+That literal was replaced with REDACTED in this archive only. The running
+workspace copy was not modified. Isopleth ships with auth disabled, so a
+rebuild of the published app does not need that secret. Enabling federated
+auth requires GROK_AUTH_CLIENT_SECRET and BETTER_AUTH_SECRET from the
+environment, not from this archive.

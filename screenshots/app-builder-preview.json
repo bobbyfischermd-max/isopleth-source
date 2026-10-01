@@ -1,0 +1,39 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Isopleth",
+      "hasCanvas": true,
+      "bodyTextLen": 4251,
+      "bodyTextHash": "e9c95475c4da585fed655ed7a74c7f88dff0fcb8f7cb5e152fe95b20c5b23ec2",
+      "bodyTextPrefix": "FIELD MODEL · 2026–2326 Isopleth Globe Plate Method A scenario i",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Isopleth",
+      "hasCanvas": true,
+      "bodyTextLen": 4242,
+      "bodyTextHash": "bda79e305e27ae7b8fda8627fbe3e9fe6a6a0935d6d12b672eede2482cb79722",
+      "bodyTextPrefix": "FIELD MODEL · 2026–2326 Isopleth Globe Plate Method A scenario i",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [
+    "BRAND WARNING: this looks like a game/canvas app but src/lib/og/site.json is missing \"type\": \"x:game\". X uses og:type=x:game to present the unfurl as a game card — set it in /workspace/src/lib/og/site.json per /workspace/.grok/skills/og/SKILL.md. Do not invent x:type or overload twitter:card as the game signal.",
+    "BRAND WARNING: this looks like a game/canvas app but /workspace/public/x-banner.jpg is missing. Games need a 50:11 X feed card (1200×264 JPEG) at public/x-banner.jpg — open /workspace/.grok/skills/og/SKILL.md and finish the brand-asset pass."
+  ],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
